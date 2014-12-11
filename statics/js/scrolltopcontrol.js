@@ -5,7 +5,7 @@ var scrolltotop={
 		scrollduration:400, //滚动过渡时间
 		fadeduration:[500,100] //淡出淡现消失
 	},
-	controlHTML:'<img src="../images/common/top_icon.png" style="width:51px; height:40px; border:0;z-index:999;" />', //返回顶部按钮
+	controlHTML:'<img src="/statics/images/top_icon.png" style="width:51px; height:40px; border:0;z-index:999;" />', //返回顶部按钮
 	controlattrs:{offsetx:83,offsety:10},//返回按钮固定位置
 	anchorkeyword:"#top",
 	state:{

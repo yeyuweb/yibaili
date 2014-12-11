@@ -630,36 +630,3 @@ $(function () {
 //        });
 //    }
 //							 ); 
-$(function(){
-	$(".bannerProduct00 .slide").hover(function(){
-		$(this).children(".q_title").stop(true,true).animate({"margin-left":"350px"},{duration:'6000'});
-		$(this).siblings().children(".q_title").stop(true,true).hide();
-	},function(){
-		$(this).children(".q_title").stop(true,true).animate({"margin-left":"50px"},{duration:'6000'});
-		$(this).siblings().children(".q_title").stop(true,true).show();
-	})
-	$(window).scroll(function(){
-
-		var scrtop = $(document).scrollTop();
-		if(scrtop < $('.technologyBox .warpdiv .div').eq(1).offset().top){
-			$('.technologyTab li').eq(0).addClass('current').siblings().removeClass('current')
-		} else if(scrtop>$('.technologyBox .warpdiv .div').eq(1).offset().top && scrtop< $('.technologyBox .warpdiv .div').eq(2).offset().top) {
-			$('.technologyTab li').eq(1).addClass('current').siblings().removeClass('current')
-		}else if(scrtop>$('.technologyBox .warpdiv .div').eq(2).offset().top && scrtop< $('.technologyBox .warpdiv .div').eq(3).offset().top) {
-			$('.technologyTab li').eq(2).addClass('current').siblings().removeClass('current')
-		}else if(scrtop>$('.technologyBox .warpdiv .div').eq(3).offset().top && scrtop< $('.technologyBox .warpdiv .div').eq(4).offset().top) {
-			$('.technologyTab li').eq(3).addClass('current').siblings().removeClass('current')
-		}else if(scrtop>$('.technologyBox .warpdiv .div').eq(4).offset().top && scrtop< $('.technologyBox .warpdiv .div').eq(5).offset().top) {
-			$('.technologyTab li').eq(4).addClass('current').siblings().removeClass('current')
-		}else if(scrtop>$('.technologyBox .warpdiv .div').eq(5).offset().top && scrtop< $('.technologyBox .warpdiv .div').eq(6).offset().top) {
-			$('.technologyTab li').eq(5).addClass('current').siblings().removeClass('current')
-		}else if(scrtop> $('.technologyBox .warpdiv .div').eq(6).offset().top) {
-			$('.technologyTab li').eq(6).addClass('current').siblings().removeClass('current')
-		}
-	})
-	if($(window).width() < 1370){
-		$(".bannerProject").width("1340px");
-	}else{
-		$(".bannerProject").width("1420px");
-	}
-})
