@@ -1,0 +1,56 @@
+<?php
+return array (
+  1 => 
+  array (
+    'siteid' => '1',
+    'name' => '英文',
+    'dirname' => '',
+    'domain' => 'http://www.ybl.com/',
+    'site_title' => '亿佰利',
+    'keywords' => '亿佰利',
+    'description' => '亿佰利',
+    'release_point' => '',
+    'default_style' => 'default',
+    'template' => 'default',
+    'setting' => 'array (
+  \'upload_maxsize\' => \'2048\',
+  \'upload_allowext\' => \'jpg|jpeg|gif|bmp|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|rar|zip|swf\',
+  \'watermark_enable\' => \'1\',
+  \'watermark_minwidth\' => \'300\',
+  \'watermark_minheight\' => \'300\',
+  \'watermark_img\' => \'statics/images/water//mark.png\',
+  \'watermark_pct\' => \'85\',
+  \'watermark_quality\' => \'80\',
+  \'watermark_pos\' => \'9\',
+)',
+    'uuid' => 'a79dae38-80fb-11e4-a96e-d9521264bf8f',
+    'url' => 'http://www.ybl.com/',
+  ),
+  2 => 
+  array (
+    'siteid' => '2',
+    'name' => '中文',
+    'dirname' => 'cn',
+    'domain' => 'http://www.ybl.com/cn/',
+    'site_title' => '亿佰利',
+    'keywords' => '亿佰利',
+    'description' => '亿佰利',
+    'release_point' => '',
+    'default_style' => 'cn',
+    'template' => 'cn',
+    'setting' => 'array (
+  \'upload_maxsize\' => \'2000\',
+  \'upload_allowext\' => \'jpg|jpeg|gif|bmp|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|rar|zip|swf\',
+  \'watermark_enable\' => \'0\',
+  \'watermark_minwidth\' => \'300\',
+  \'watermark_minheight\' => \'300\',
+  \'watermark_img\' => \'statics/images/water/http://www.ybl.com/mark.gif\',
+  \'watermark_pct\' => \'100\',
+  \'watermark_quality\' => \'80\',
+  \'watermark_pos\' => \'9\',
+)',
+    'uuid' => '',
+    'url' => 'http://www.ybl.com/cn/',
+  ),
+);
+?>
