@@ -1,16 +1,16 @@
-<div class="bottom clearfix">
+<?php defined('IN_PHPCMS') or exit('No permission resources.'); ?><div class="bottom clearfix">
   <div class="bottomWrap">
         <span class="arrowBot"></span>
-        {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
-            {loop $data $r}
+        <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b43f1459ac702900c8d44c91a5e796dd&action=category&catid=0&num=25&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'0','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'25',));}?>
+            <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
         <dl>
-            <dt>{$r[catname]}</dt>
-             {loop subcat($r[catid]) $m}
-            <dd><a href="{$m[url]}">{$m[catname]}</a></dd>
-            {/loop}
+            <dt><?php echo $r['catname'];?></dt>
+             <?php $n=1;if(is_array(subcat($r[catid]))) foreach(subcat($r[catid]) AS $m) { ?>
+            <dd><a href="<?php echo $m['url'];?>"><?php echo $m['catname'];?></a></dd>
+            <?php $n++;}unset($n); ?>
         </dl>
-            {/loop}
-            {/pc}
+            <?php $n++;}unset($n); ?>
+            <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
            
         <div class="bottomRight">
             </div>
@@ -37,13 +37,13 @@
     </div>
 </div>
 <!--End .footer-->
-<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
-<script src="{JS_PATH}script.js" type="text/javascript"></script>
-<script src="{JS_PATH}jquery.bannerSwitch.js" type="text/javascript"></script>
-<script src="{JS_PATH}jquery.KinSlideshow-1.2.1.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="{JS_PATH}jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="{JS_PATH}banner.js"></script>
-<script type="text/javascript" src="{JS_PATH}scrolltopcontrol.js"></script>
+<script src="<?php echo JS_PATH;?>jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="<?php echo JS_PATH;?>script.js" type="text/javascript"></script>
+<script src="<?php echo JS_PATH;?>jquery.bannerSwitch.js" type="text/javascript"></script>
+<script src="<?php echo JS_PATH;?>jquery.KinSlideshow-1.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="<?php echo JS_PATH;?>banner.js"></script>
+<script type="text/javascript" src="<?php echo JS_PATH;?>scrolltopcontrol.js"></script>
 <script type="text/javascript">
 <!--
     $(function () {
@@ -79,7 +79,7 @@
     });
 //-->
 </script>
-<script type="text/javascript" src="{JS_PATH}jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.jcarousel.min.js"></script>
 <script type="text/javascript">
     $(function () {
         var len = $(".imglist li").length;

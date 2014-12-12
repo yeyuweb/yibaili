@@ -1,10 +1,13 @@
 {template "content","header"}
 <div class="banner bannerSwitch01">
         <ul>
-            <li><img src="{IMG_PATH}261533506264.jpg" width="1440" height="565" /></li>
-            <li><a href=""  target="_blank" title="alt" ><img src="{IMG_PATH}261533584716.jpg" width="1440" height="565" /></a></li>
-            <li><a href=""  target="_blank" title="" ><img src="{IMG_PATH}YBLfashion_05.jpg" width="1423" height="565" /></a></li>
-            <li><a href=""  target="_blank" title="" ><img src="{IMG_PATH}261533584716.jpg" width="1440" height="565" /></a></li>
+            {pc:get sql="SELECT setting FROM ybl_poster WHERE spaceid = 11 AND type='images' AND disabled=0 ORDER BY listorder ASC" num="4"}
+               {loop $data $r}
+               <?php eval("\$narry =$r[setting];");?>
+               <li><a  href="{$narry[1][linkurl]}"><img src="{$narry[1][imageurl]}" width="1440" height="565" /></a></li>
+               {/loop} 
+            {/pc}
+     
                 
         </ul>
         <div >

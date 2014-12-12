@@ -32,24 +32,23 @@
     </div>
     <div class="mainNav clearfix">   
         <ul class="nav clearfix">
-            <li class="about "><a href="">了解亿佰利</a></li>
-            <li class="product "><a href="">产品中心</a></li>
-          <li class="project "><a href="">亿佰利新闻</a></li>
-          <li class="support "><a href="">测试报告</a></li>
-             <li class="technology "><a href="">加入我们</a></li>
-           <li class="contact "><a href="">联系我们</a></li>                     
+            {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+            {loop $data $r}
+            <li class="{$r[description]} "><a href="{$r[url]}">{$r[catname]}</a></li>
+            {/loop}
+            {/pc}                   
         </ul>    
-        <a href="/" class="backHome">返回首页</a>
+        <a href="{siteurl($siteid)}" class="backHome">返回首页</a>
     </div>
 </div>
     <div class="navShow-about">
         <div class="navShowwrap">  
         <ul class="navList">
-            <li ><a href="">关于亿佰利</a></li>
-            <li ><a href="">企业文化</a></li>
-            <li ><a href="">PDF文件</a></li>
-            <li ><a href="">视频中心</a></li>
-            <li ><a href="">人才招聘</a></li>
+             {pc:content action="category" catid="6" num="25" siteid="$siteid" order="listorder ASC"}
+             {loop $data $r}
+             <li ><a href="{$r[url]}">{$r[catname]}</a></li>
+             {/loop}
+            {/pc}  
 
          </ul>                             
          </div>
@@ -67,32 +66,29 @@
             
             <li><p><a href=""><img src="{IMG_PATH}161420583022.jpg" width="119" height="96" alt=""/></a></p><p><a href="">半圆片</a></p></li>
         </ul>  
-		 <ul class="nameList">     
-                <li><a href="">烫图</a></li>
-                <li><a href="">钻</a></li>
-                <li><a href="">八角</a></li>
-                <li> <a href="">半圆片</a></li>
-         </ul>
-		 
-		  <ul class="nameList">     
-                <li><a href="">平片</a></li>
-               <li><a href=""> 镜面钻</a></li>
-                <li><a href="">镇住</a></li>
-               <li><a href="">亚克力</a></li>
-         </ul>
-		 
-		  <ul class="nameList">     
-                <li><a href="">仿捷克钻</a></li>
-                <li><a href="">铜片</a></li>
-                <li><a href="">烫画</a></li>
-         </ul>
+            {pc:content action="category" catid="12" num="25" siteid="$siteid" order="listorder ASC"}
+            {php $i=1;}
+            <ul class="nameList">     
+             {loop $data $r}
+                <li><a href="{$r[url]}">{$r[catname]}</a></li>
+                          {if $i%4==0}
+                </ul><ul class="nameList">   
+                {/if} 
+                 {php  $i++;}
+             {/loop}
+             {/pc}
+             </ul>
  </div>
     </div>
     <div class="navShow-project">
         <div class="navShowwrap">          
          <ul class="navList">
-            <li><a href="" >企业新闻</a></li>
-             <li><a href="" >展会信息</a></li>
+             {pc:content action="category" catid="13" num="25" siteid="$siteid" order="listorder ASC"}
+             {loop $data $r}
+            <li><a href="{$r[url]}" >{$r[catname]}</a></li>
+               {/loop}
+             {/pc}
+         
 
               </ul>        
          </div>
@@ -100,8 +96,24 @@
     <div class="navShow-support">
         <div class="navShowwrap">          
          <ul class="navList">
-            <li ><a href="">测试报告</a></li>
-            <li ><a href="">认证报告</a></li>
+             {pc:content action="category" catid="14" num="25" siteid="$siteid" order="listorder ASC"}
+             {loop $data $r}
+            <li ><a href="{$r[url]}">{$r[catname]}</a></li>
+             {/loop}
+             {/pc}
+        
+
+         </ul>        
+         </div>
+    </div>
+    <div class="navShow-technology">
+        <div class="navShowwrap">          
+         <ul class="navList">
+             {pc:content action="category" catid="15" num="25" siteid="$siteid" order="listorder ASC"}
+             {loop $data $r}
+            <li ><a href="{$r[url]}">{$r[catname]}</a></li>
+            {/loop}
+             {/pc}
 
          </ul>        
          </div>
@@ -109,8 +121,12 @@
     <div class="navShow-contact">
         <div class="navShowwrap">          
          <ul class="navList">
-            <li ><a href="">联系我们</a></li>
-            <li ><a href="" class="bKnone">在线留言</a></li>
+             {pc:content action="category" catid="16" num="25" siteid="$siteid" order="listorder ASC"}
+             {loop $data $r}
+            <li ><a href="{$r[url]}">{$r[catname]}</a></li>
+             {/loop}
+             {/pc}
+            
          </ul>        
          </div>
     </div>
