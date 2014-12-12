@@ -138,5 +138,28 @@ return array (
     'sort' => '0',
     'type' => '0',
   ),
+  14 => 
+  array (
+    'modelid' => '14',
+    'siteid' => '2',
+    'name' => '下载模型',
+    'description' => '',
+    'tablename' => 'cn_download',
+    'setting' => '',
+    'addtime' => '0',
+    'items' => '0',
+    'enablesearch' => '1',
+    'disabled' => '0',
+    'default_style' => 'cn',
+    'category_template' => 'category',
+    'list_template' => 'list',
+    'show_template' => 'show',
+    'js_template' => '',
+    'admin_list_template' => '',
+    'member_add_template' => '',
+    'member_list_template' => '',
+    'sort' => '0',
+    'type' => '0',
+  ),
 );
 ?>

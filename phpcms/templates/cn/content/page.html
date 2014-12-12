@@ -1,20 +1,111 @@
-{template "content","header_page"}
-<div id="content">
-	<div class="col-left left-nav">
-    	<h1>关于我们</h1>
-    	<ul class="content">
-        	{loop $arrchild_arr $cid}
-                <li{if $catid==$cid} class="cur"{/if}><a href="{$CATEGORYS[$cid][url]}">{$CATEGORYS[$cid][catname]}</a></li>
-			{/loop}
-        </ul>
-        <div class="bottom"></div>
+{template "content","header"}
+<!--End .mainNav-->
+{template "content","header_min"}
+    <div id="container" class="clearfix">
+    <div class="wrap clearfix">
+         <div class="titleMain"><h1 class="title">企业文化</h1><div class="navCrumbs"><a href="../www.orans.com.html">首页</a> > <a href="about.html">了解欧路莎</a> > 企业文化</div></div>       
+         <div class="aboutBox" style="border:none;">
+          <div class="wrap clearfix">
+           <!-- <img src="images/culture.jpg" width="1042" height="433" alt=""/> -->
+          <!--  <img src="images/culture.jpg" width="1042" height="433" alt=""/> -->
+            <div class="qywh">
+              <ul>
+                <li>
+                  <div class="qy_img"><img src="images/wh1.png"/></div>
+                  <div class="qy_txt">
+                    <h5>企业愿景：势做全球卫浴第一品牌</h5>
+                    <h6>科技创新驱动企业发展</h6>
+                    <p>公司与德国、意大利的相关研发机构及国内知名高校组建了技术实力雄厚的研发技术中心。先后取得150余项科研成果和发明专利，是行业相关标准的起草和制定单位之一，被认定为高新技术企业。</p>
+                    <h6>卓越管理铸就国际品质</h6>
+                    <p>公司积极引入数字化管理系统，实现全流程管控，密切关注国际趋势及时发现产业科技动向；与国内外著名的科研机构、专家联合进行专项课题攻关；“建模分析、调试校对、指标量化、标准制定”四步实现成果转化；200多名技术人员在一线执行标准化的量产监控。</p>
+                  </div>
+                </li>
+                <li class="qy02">
+                  <div class="qy_img"><img src="images/wh2.png"/></div>
+                  <div class="qy_txt">
+                    <h5>企业使命：志在为客户提供最佳卫浴解决方案</h5>
+                    <p>专业的售前和售后技术支持团队，规范化的方案设计和维修服务流程，完善的IT全流程监管，欧路莎打造反应及时、快捷有效的“智尊服务”体系，竭诚与全国经销商建立顺畅信息互动通道，第一时间提供技术支持，为消费者解决后顾之忧。</p>
+                  </div>
+                </li>
+                <li class="qy03">
+                  <div class="qy_img"><img src="images/wh3.png"/></div>
+                  <div class="qy_txt">
+                    <h5>企业定位：中国智能卫浴引领者</h5>
+                    <p>从整体淋浴房到浴室智能一体化系统，我们不断拓荒，奔跑在行业发展最前方；从技术改良到与国际科研机构联手，我们迅速成长，翱翔在中国智造最前端；从简易电子控制到多科研领域的跨界合作，我们持续研发，畅游在卓越品质最前沿；从产品创新、品牌建设、渠道扩张、终端升级到经营模式的全新构建。欧路莎，引领着中国智能卫浴大未来！</p>
+                  </div>
+                </li>
+                <li class="qy03">
+                  <div class="qy_img"><img src="images/wh4.png"/></div>
+                  <div class="qy_txt">
+                    <h5>品牌核心价值：享受生活每一天</h5>
+                    <p>欧路莎倡导“宠爱科技”，确立“智能以人为根本，科技以爱为源泉”的科研理念。将卫浴制造与电子数控、新材料应用、人体工程、生理医学等进行跨界合作，升华卫浴感受，带给消费者身心的呵护和宠爱。让欧路莎智能卫浴成为享受生活的一部分。</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+         </div>      
     </div>
-  <div class="col-auto">
-    	<img src="{IMG_PATH}v9/about_ad.png" width="659" height="171" />
-    	<h1 class="title">{$title}</h1>
-        <div class="content">
-        	    {$content}
-        </div>
+</div>
     </div>
- </div>
+<script type="text/javascript">
+        $(function () {
+            if ($("#hfid").val() != "") {
+                var hf = $("#hfid").val();
+                $(".productSmain a[srcs=0]").each(function () {
+                    $(".productSmain a[name=" + $(this).attr("name") + "]").each(function () {
+                        if (hf.indexOf("|" + $(this).attr("srcs") + "|") > -1) {
+                            $(".productSmain a[srcs=0][name=" + $(this).attr("name") + "]").parent().attr("class", "");
+                            $(this).parent().attr("class", "current");
+                        }
+                    })
+
+                })
+                $(".proMainTop").trigger("click");
+            }
+            $(".proMainTop").trigger("click");
+            $(".productSmain a").click(function () {
+                var name = $(this).attr("name");
+                var id = $(this).attr("srcs");
+                var hf = $("#hfid").val();
+                if (name != "" && id != "") {
+                    if (hf == "") {
+                        if (id != "0") {
+                            hf = "|" + id + "|";
+                        }
+                    } else {
+                        if (hf.indexOf("|" + id + "|") < 0) {
+                            $(".productSmain a[name=" + name + "]").each(function () {
+                                if (hf.indexOf("|" + $(this).attr("srcs") + "|") > -1) {
+                                    hf = hf.replace("|" + $(this).attr("srcs") + "|", "|");
+                                }
+                            })
+                            if (id != "0") {
+                                hf += id + "|";
+                            }
+                        }   //                    else {
+                        //                        if (hf == "") {
+                        //                            hf = "|" + id + "|";
+                        //                        } else {
+                        //                            hf += id + "|";
+                        //                        }
+                        //                    }
+                    }
+
+                }
+                $("#hfid").val(hf);
+                if (hf == "|") hf = "";
+                if (hf == "") {
+                    window.location.href = "list.aspx?id=49#pro";
+                } else {
+                    window.location.href = "list.aspx?id=49&hid=" + hf + "#pro";
+                }
+            });
+
+        });
+        function voids() { }
+    </script>
+    <!--End .container-->
+    
 {template "content","footer"}
