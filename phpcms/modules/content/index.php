@@ -205,6 +205,10 @@ class index {
 	//列表页
 	public function lists() {
 		$catid = $_GET['catid'] = intval($_GET['catid']);
+                $q = safe_replace(trim($_GET['q']));
+                $q = new_html_special_chars(strip_tags($q));
+                $q = str_replace('%', '', $q);	//过滤'%'，用户全文搜索
+                $search_q = $q;	//搜索原内容
 		$_priv_data = $this->_category_priv($catid);
 		if($_priv_data=='-1') {
 			$forward = urlencode(get_url());

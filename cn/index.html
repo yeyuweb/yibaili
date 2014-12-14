@@ -4,8 +4,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
 <link type="text/css" href="http://www.ybl.com/statics/css/base.css" rel="stylesheet" />
 <link type="text/css" href="http://www.ybl.com/statics/css/page.css" rel="stylesheet" />
+<script src="http://www.ybl.com/statics/js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <title>亿佰利</title>
 </head>
+<script type="text/javascript">
+        $(function(){
+            $("#ddltype").change(function(){
+                var value = $(this).find('option:selected').val();
+                $("#typeid").val(value);
+            })
+        })
+ 
+        
+        
+        
+    </script>
 <body>
 
 <div class="header clearfix">
@@ -18,26 +31,34 @@
 	<li ><a href="# " class="s03"> <img src="http://www.ybl.com/statics/images/t33.jpg" width="28" height="17" /></a></li>
 	<li ><a href="#" class="s04"><img src="http://www.ybl.com/statics/images/t44.jpg" width="28" height="17" /></a></li>
 	</ul></div>
+               <form action="http://www.ybl.com/index.php" method="get" target="_blank" name="myform">
     	<div class="p1"></div>
-        <div class="p2"><input name="" id="txtkey" type="text" /></div>
-        <div class="p3"><select id="ddltype">
-          <option value="/product/Results.aspx?key=">产品型号</option>
-          <option  value="/news/Results.aspx?key=">新闻标题</option>
+        <div class="p2">
+        <input name="q" id="txtkey" type="text" /></div>
+        <div class="p3">
+            <select id="ddltype">
+          <option value="53">产品型号</option>
+          <option  value="54">新闻标题</option>
       </select></div>
-        <div class="p4"><input type="button" id="btok" value="搜索" /></div>
-       
+        <input type="hidden" name="m" value="search"/>
+        <input type="hidden" name="c" value="index"/>
+        <input type="hidden" name="a" value="init"/>
+        <input type="hidden" name="typeid" value="53" id="typeid"/> 
+        <input type="hidden" name="siteid" value="2" id="siteid"/>
+        <div class="p4"><input type="submit" id="btok" value="搜索" /></div>
+               </form>
     </div>
     <div class="logo">
         <a href="/"><img src="http://www.ybl.com/statics/images/img_02.jpg" width="171" height="89" /></a>       
     </div>
     <div class="mainNav clearfix">   
         <ul class="nav clearfix">
-                                    <li class="about "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=6">了解亿佰利</a></li>
-                        <li class="product "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=12">产品中心</a></li>
-                        <li class="project "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=13">亿佰利新闻</a></li>
-                        <li class="support "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=14">测试报告</a></li>
-                        <li class="technology "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=15">加入我们</a></li>
-                        <li class="contact "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=16">联系我们</a></li>
+                                                                                            <li class="about "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=37">了解亿佰利</a></li>
+                                                                <li class="product "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=12">产品中心</a></li>
+                                                                                <li class="project "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=28">亿佰利新闻</a></li>
+                                                                                <li class="support "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=30">测试报告</a></li>
+                                                                                <li class="technology "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=32">加入我们</a></li>
+                                                                                <li class="contact "><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=33">联系我们</a></li>
                                            
         </ul>    
         <a href="http://www.ybl.com/cn" class="backHome">返回首页</a>
@@ -46,11 +67,11 @@
     <div class="navShow-about">
         <div class="navShowwrap">  
         <ul class="navList">
-                                       <li ><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=7">关于亿佰利</a></li>
-                          <li ><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=8">企业文化</a></li>
+                                       <li ><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=37">关于亿佰利</a></li>
+                          <li ><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=35">企业文化</a></li>
                           <li ><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=9">PDF文件</a></li>
-                          <li ><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=10">视频中心</a></li>
-                          <li ><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=11">人才招聘</a></li>
+                          <li ><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=39">视频中心</a></li>
+                          <li ><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=36">人才招聘</a></li>
                            
 
          </ul>                             
@@ -60,15 +81,8 @@
     <div class="navShow-product">
         <div class="navShowwrap">
          <ul class="nSplist">
-          
-            <li><p><a href=""><img src="http://www.ybl.com/statics/images/161420583022.jpg" width="119" height="96" alt=""/></a></p><p><a href="">烫图</a></p></li>
-            
-            <li><p><a href=""><img src="http://www.ybl.com/statics/images/171423299005.jpg" width="119" height="96" alt=""/></a></p><p><a href="">钻</a></p></li>
-            
-            <li><p><a href=""><img src="http://www.ybl.com/statics/images/171418231100.jpg" width="119" height="96" alt=""/></a></p><p><a href="">八角</a></p></li>
-            
-            <li><p><a href=""><img src="http://www.ybl.com/statics/images/161420583022.jpg" width="119" height="96" alt=""/></a></p><p><a href="">半圆片</a></p></li>
-        </ul>  
+                                                      <li><p><a href="http://www.ybl.com/index.php?m=content&c=index&a=show&catid=38&id=1"><img src="http://www.ybl.com/uploadfile/2014/1214/20141214115522212.jpg" width="119" height="96" alt="OLS-06101"/></a></p><p><a href="">OLS-06101</a></p></li>
+                                                </ul>  
                                     <ul class="nameList">     
                              <li><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=17">烫图</a></li>
                            
@@ -156,21 +170,19 @@
 <div id="container" class="clearfix">
   <div class="wrapMain">
             <div class="homeLeft">
-                
-                <div class="newsTop clearfix">
+                                                                 <div class="newsTop clearfix">
                     <div class="nTleft">
-                        <a href="">
-                            <img src="http://www.ybl.com/statics/images/21118358643.jpg" width="188" height="126" alt="" /></a></div>
+                        <a href="http://www.ybl.com/index.php?m=content&c=index&a=show&catid=28&id=1">
+                            <img src="http://www.ybl.com/uploadfile/2014/1214/20141214014030788.jpg" width="188" height="126" alt="" /></a></div>
                     <div class="nTright">
-                        <a href="">畅享卫浴新潮流 近百名设计师齐聚赣州欧路莎</a><br />
-                        <span>2014-12-02</span><br />
-                        <span>“无设计，不家装”。随着人们生活水平的提高，市民对于家装设计的要求也日益多元化。11月29日，欧路莎卫浴携手近百名知名设计师盛装开业，将新兴潮的家居设计潮流与丰富多样的住宅形式融入人们的生活中，为消费者打造专属的家装风格。</span>
+                        <a href="http://www.ybl.com/index.php?m=content&c=index&a=show&catid=28&id=1">中国驰名商标、中国十大...</a><br />
+                        <span>2014-12-14</span><br />
+                        <span>中国驰名商标、中国十大卫浴品牌、卫浴品牌企业十强，中国厨卫百强，行业相关标准的起草和制定单位之一中国驰名商标、中国十大卫浴品牌、卫</span>
                         </div>
                 </div>
-                
+                                                                              
                 <ul class="newsList clearfix">
-                    <li><a href="">盐城欧路莎“大品牌大组合”联盟劲惠登场</a><span class="time">2014-11-18</span></li>
-                     <li><a href="">“明星”同台斗艳，李冰冰引爆欧路莎兰州店现场</a><span class="time">2014-11-18</span></li>
+                                                                                                                                                                      
                         
                 </ul>
             </div>
@@ -178,12 +190,8 @@
                 <div class="Plist">
                     <div class="PlistBox">
                     <ul class="imglist">
-                    <li><a href=""  target="_blank" title="IT-803JAD" ><img src="http://www.ybl.com/statics/images/2410151738.jpg" width="160" height="110" /></a> <a href=""><p> IT-803JAD</p></a></li>
-                            
-                                 <li><a href=""  target="_blank" title="IT-803JAD" ><img src="http://www.ybl.com/statics/images/2410151738.jpg" width="160" height="110" /></a> <a href=""><p> IT-803JAD</p></a></li>
-                            
-                                 <li><a href=""  target="_blank" title="IT-803JAD" ><img src="http://www.ybl.com/statics/images/2410151738.jpg" width="160" height="110" /></a> <a href=""><p> IT-803JAD</p></a></li>
-                             <li><a href=""  target="_blank" title="IT-803JAD" ><img src="http://www.ybl.com/statics/images/2410151738.jpg" width="160" height="110" /></a> <a href=""><p> IT-803JAD</p></a></li>
+                                                                            <li><a href="http://www.ybl.com/index.php?m=content&c=index&a=show&catid=38&id=1"  target="_blank" title="OLS-06101" ><img src="http://www.ybl.com/uploadfile/2014/1214/20141214115522212.jpg" width="160" height="110" /></a> <a href="http://www.ybl.com/index.php?m=content&c=index&a=show&catid=38&id=1"><p> OLS-06101</p></a></li>
+                                                                                         
                             
                     </ul>
                     </div>
@@ -208,15 +216,15 @@
         <span class="arrowBot"></span>
                             <dl>
             <dt>了解亿佰利</dt>
-                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=7">关于亿佰利</a></dd>
-                        <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=8">企业文化</a></dd>
+                          <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=37">关于亿佰利</a></dd>
+                        <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=35">企业文化</a></dd>
                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=9">PDF文件</a></dd>
-                        <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=10">视频中心</a></dd>
-                        <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=11">人才招聘</a></dd>
-                    </dl>
+                        <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=39">视频中心</a></dd>
+                        <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=36">人才招聘</a></dd>
+                                </dl>
                     <dl>
             <dt>产品中心</dt>
-                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=17">烫图</a></dd>
+                          <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=17">烫图</a></dd>
                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=18">钻</a></dd>
                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=19">八角</a></dd>
                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=20">半圆片</a></dd>
@@ -227,26 +235,26 @@
                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=25">仿捷克钻</a></dd>
                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=26">铜片</a></dd>
                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=27">烫画</a></dd>
-                    </dl>
+                                </dl>
                     <dl>
             <dt>亿佰利新闻</dt>
-                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=28">企业新闻</a></dd>
+                          <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=28">企业新闻</a></dd>
                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=29">展会信息</a></dd>
-                    </dl>
+                                </dl>
                     <dl>
             <dt>测试报告</dt>
-                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=30">测试报告</a></dd>
+                          <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=30">测试报告</a></dd>
                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=31">认证报告</a></dd>
-                    </dl>
+                                </dl>
                     <dl>
             <dt>加入我们</dt>
-                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=32">加入我们</a></dd>
-                    </dl>
+                          <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=32">加入我们</a></dd>
+                                </dl>
                     <dl>
             <dt>联系我们</dt>
-                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=33">联系我们</a></dd>
+                          <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=33">联系我们</a></dd>
                         <dd><a href="http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=34">在线留言</a></dd>
-                    </dl>
+                                </dl>
                                    
         <div class="bottomRight">
             </div>
@@ -273,7 +281,6 @@
     </div>
 </div>
 <!--End .footer-->
-<script src="http://www.ybl.com/statics/js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="http://www.ybl.com/statics/js/script.js" type="text/javascript"></script>
 <script src="http://www.ybl.com/statics/js/jquery.bannerSwitch.js" type="text/javascript"></script>
 <script src="http://www.ybl.com/statics/js/jquery.KinSlideshow-1.2.1.min.js" type="text/javascript"></script>

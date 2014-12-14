@@ -23,21 +23,30 @@
 <div id="container" class="clearfix">
   <div class="wrapMain">
             <div class="homeLeft">
-                
+                 {pc:get sql="SELECT ybl_cn_news.* FROM ybl_position_data left join ybl_cn_news on ybl_position_data.id= ybl_cn_news.id where ybl_position_data.posid=18 and ybl_cn_news.id is not null   ORDER BY listorder desc" num="1"}
+                                {loop $data $r}
                 <div class="newsTop clearfix">
                     <div class="nTleft">
-                        <a href="">
-                            <img src="{IMG_PATH}21118358643.jpg" width="188" height="126" alt="" /></a></div>
+                        <a href="{$r['url']}">
+                            <img src="{$r['thumb']}" width="188" height="126" alt="" /></a></div>
                     <div class="nTright">
-                        <a href="">畅享卫浴新潮流 近百名设计师齐聚赣州欧路莎</a><br />
-                        <span>2014-12-02</span><br />
-                        <span>“无设计，不家装”。随着人们生活水平的提高，市民对于家装设计的要求也日益多元化。11月29日，欧路莎卫浴携手近百名知名设计师盛装开业，将新兴潮的家居设计潮流与丰富多样的住宅形式融入人们的生活中，为消费者打造专属的家装风格。</span>
+                        <a href="{$r['url']}">{str_cut(strip_tags($r[title]),40,"...")}</a><br />
+                        <span>{date('Y-m-d',$r[inputtime])}</span><br />
+                        <span>{$r['description']}</span>
                         </div>
                 </div>
+                                  {/loop}
+                            {/pc}
                 
                 <ul class="newsList clearfix">
-                    <li><a href="">盐城欧路莎“大品牌大组合”联盟劲惠登场</a><span class="time">2014-11-18</span></li>
-                     <li><a href="">“明星”同台斗艳，李冰冰引爆欧路莎兰州店现场</a><span class="time">2014-11-18</span></li>
+                      {pc:get sql="SELECT ybl_cn_news.* FROM ybl_position_data left join ybl_cn_news on ybl_position_data.id= ybl_cn_news.id where ybl_position_data.posid=18 and ybl_cn_news.id is not null   ORDER BY listorder desc" num="3"}
+                                {loop $data $r}
+                                {if $n!=1}
+                    <li><a href="{$r[url]}">{$r['title']}</a><span class="time">{date('Y-m-d',$r[inputtime])}</span></li>
+                        {/if}
+                                {/loop}
+                            {/pc}
+                    
                         
                 </ul>
             </div>
@@ -45,12 +54,12 @@
                 <div class="Plist">
                     <div class="PlistBox">
                     <ul class="imglist">
-                    <li><a href=""  target="_blank" title="IT-803JAD" ><img src="{IMG_PATH}2410151738.jpg" width="160" height="110" /></a> <a href=""><p> IT-803JAD</p></a></li>
-                            
-                                 <li><a href=""  target="_blank" title="IT-803JAD" ><img src="{IMG_PATH}2410151738.jpg" width="160" height="110" /></a> <a href=""><p> IT-803JAD</p></a></li>
-                            
-                                 <li><a href=""  target="_blank" title="IT-803JAD" ><img src="{IMG_PATH}2410151738.jpg" width="160" height="110" /></a> <a href=""><p> IT-803JAD</p></a></li>
-                             <li><a href=""  target="_blank" title="IT-803JAD" ><img src="{IMG_PATH}2410151738.jpg" width="160" height="110" /></a> <a href=""><p> IT-803JAD</p></a></li>
+                        {pc:get sql="SELECT ybl_cn_picture.* FROM ybl_position_data left join ybl_cn_picture on ybl_position_data.id= ybl_cn_picture.id where ybl_position_data.posid=19 and ybl_cn_picture.id is not null   ORDER BY listorder desc" num="4"}
+                                {loop $data $r}
+                    <li><a href="{$r[url]}"  target="_blank" title="{$r[title]}" ><img src="{$r[thumb]}" width="160" height="110" /></a> <a href="{$r[url]}"><p> {$r[title]}</p></a></li>
+                            {/loop}
+                            {/pc}
+                                 
                             
                     </ul>
                     </div>

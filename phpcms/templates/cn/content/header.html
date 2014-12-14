@@ -4,8 +4,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
 <link type="text/css" href="{CSS_PATH}base.css" rel="stylesheet" />
 <link type="text/css" href="{CSS_PATH}page.css" rel="stylesheet" />
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
 <title>亿佰利</title>
 </head>
+<script type="text/javascript">
+        $(function(){
+            $("#ddltype").change(function(){
+                var value = $(this).find('option:selected').val();
+                $("#typeid").val(value);
+            })
+        })
+ 
+        
+        
+        
+    </script>
 <body>
 
 <div class="header clearfix">
@@ -18,14 +31,22 @@
 	<li ><a href="# " class="s03"> <img src="{IMG_PATH}t33.jpg" width="28" height="17" /></a></li>
 	<li ><a href="#" class="s04"><img src="{IMG_PATH}t44.jpg" width="28" height="17" /></a></li>
 	</ul></div>
+               <form action="{APP_PATH}index.php" method="get" target="_blank" name="myform">
     	<div class="p1"></div>
-        <div class="p2"><input name="" id="txtkey" type="text" /></div>
-        <div class="p3"><select id="ddltype">
-          <option value="/product/Results.aspx?key=">产品型号</option>
-          <option  value="/news/Results.aspx?key=">新闻标题</option>
+        <div class="p2">
+        <input name="q" id="txtkey" type="text" /></div>
+        <div class="p3">
+            <select id="ddltype">
+          <option value="53">产品型号</option>
+          <option  value="54">新闻标题</option>
       </select></div>
-        <div class="p4"><input type="button" id="btok" value="搜索" /></div>
-       
+        <input type="hidden" name="m" value="search"/>
+        <input type="hidden" name="c" value="index"/>
+        <input type="hidden" name="a" value="init"/>
+        <input type="hidden" name="typeid" value="53" id="typeid"/> 
+        <input type="hidden" name="siteid" value="{$siteid}" id="siteid"/>
+        <div class="p4"><input type="submit" id="btok" value="搜索" /></div>
+               </form>
     </div>
     <div class="logo">
         <a href="/"><img src="{IMG_PATH}img_02.jpg" width="171" height="89" /></a>       
@@ -34,7 +55,13 @@
         <ul class="nav clearfix">
             {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
             {loop $data $r}
-            <li class="{$r[description]} "><a href="{$r[url]}">{$r[catname]}</a></li>
+            {if (count(subcat($r[catid],0,0,$siteid)) > 0 || count(subcat($r[catid],1,0,$siteid)) > 0)  && $n !=2}
+                {php $zi_arr = explode(',',$r[arrchildid])}
+                {php $url = $CATEGORYS[$zi_arr[1]][url]}
+            {else}
+                {php $url  = $r[url]}
+            {/if}
+            <li class="{$r[description]} "><a href="{$url}">{$r[catname]}</a></li>
             {/loop}
             {/pc}                   
         </ul>    
@@ -57,14 +84,11 @@
     <div class="navShow-product">
         <div class="navShowwrap">
          <ul class="nSplist">
-          
-            <li><p><a href=""><img src="{IMG_PATH}161420583022.jpg" width="119" height="96" alt=""/></a></p><p><a href="">烫图</a></p></li>
-            
-            <li><p><a href=""><img src="{IMG_PATH}171423299005.jpg" width="119" height="96" alt=""/></a></p><p><a href="">钻</a></p></li>
-            
-            <li><p><a href=""><img src="{IMG_PATH}171418231100.jpg" width="119" height="96" alt=""/></a></p><p><a href="">八角</a></p></li>
-            
-            <li><p><a href=""><img src="{IMG_PATH}161420583022.jpg" width="119" height="96" alt=""/></a></p><p><a href="">半圆片</a></p></li>
+          {pc:get sql="SELECT ybl_cn_picture.* FROM ybl_position_data left join ybl_cn_picture on ybl_position_data.id= ybl_cn_picture.id where ybl_position_data.posid=20 and ybl_cn_picture.id is not null   ORDER BY listorder desc" num="4"}
+                                {loop $data $r}
+            <li><p><a href="{$r[url]}"><img src="{$r[thumb]}" width="119" height="96" alt="{$r[title]}"/></a></p><p><a href="">{$r[title]}</a></p></li>
+            {/loop}
+                            {/pc}
         </ul>  
             {pc:content action="category" catid="12" num="25" siteid="$siteid" order="listorder ASC"}
             {php $i=1;}

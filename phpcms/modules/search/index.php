@@ -77,11 +77,13 @@ class index {
 				//分词结果
 				$segment_q = $segment->get_keyword($segment->split_result($q));
 				//如果分词结果为空
-				if(!empty($segment_q)) {
-					$sql = "`siteid`= '$siteid' AND `typeid` = '$typeid' $sql_time AND MATCH (`data`) AGAINST ('$segment_q' IN BOOLEAN MODE)";
-				} else {
-					$sql = "`siteid`= '$siteid' AND `typeid` = '$typeid' $sql_time AND `data` like '%$q%'";
-				}
+//				if(!empty($segment_q)) {
+//					$sql = "`siteid`= '$siteid' AND `typeid` = '$typeid' $sql_time AND MATCH (`data`) AGAINST ('$segment_q' IN BOOLEAN MODE)";
+//				} else {
+//					$sql = "`siteid`= '$siteid' AND `typeid` = '$typeid' $sql_time AND `data` like '%$q%'";
+//				}
+                                $sql = "`siteid`= '$siteid' AND `typeid` = '$typeid' $sql_time AND `data` like '%$q%'";
+                                //$sql = "`siteid`= $siteid AND `typeid` = $typeid $sql_time AND `data` like %$q%";
 
 				$result = $this->db->listinfo($sql, 'searchid DESC', $page, 10);
 			}
@@ -137,7 +139,7 @@ class index {
 				//获取模型id
 				$model_type_cache = getcache('type_model_'.$siteid,'search');
 				$model_type_cache = array_flip($model_type_cache);
-				$modelid = $model_type_cache[$typeid];
+			        $modelid = $model_type_cache[$typeid];
 
 				//是否读取其他模块接口
 				if($modelid) {
@@ -187,7 +189,7 @@ class index {
 			$execute_time = execute_time();
 			$pages = isset($pages) ? $pages : '';
 			$totalnums = isset($totalnums) ? $totalnums : 0;
-			$data = isset($data) ? $data : '';
+			$search_data = isset($data) ? $data : '';
 			
 			include	template('search','list');
 		} else {
