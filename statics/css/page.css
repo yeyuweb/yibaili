@@ -627,7 +627,7 @@ input,textarea{font-size:14px;font-family:\5FAE\8F6F\96C5\9ED1;}
 
 
 .page{width:490px;margin:20px auto;}
-.page a{background:url(/statics/images/page_bg.png) no-repeat;width:25px;height:22px;line-height:22px;float:left;display:block;margin-right:8px;text-align:center;}
+.page a{background:url(/statics/images/page_bg.png) no-repeat;width:45px;height:22px;line-height:22px;float:left;display:block;margin-right:8px;text-align:center;}
 .page a.first{background:none;}
 .page a.pre{width:45px;background:none;}
 .page a.next{width:45px;background:none;}

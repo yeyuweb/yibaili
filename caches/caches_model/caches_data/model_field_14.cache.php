@@ -83,7 +83,7 @@ return array (
   \'isselectimage\' => \'0\',
   \'upload_number\' => \'10\',
   \'downloadlink\' => \'1\',
-  \'downloadtype\' => \'1\',
+  \'downloadtype\' => \'0\',
 )',
     'formattribute' => '',
     'unsetgroupids' => '',
@@ -103,7 +103,7 @@ return array (
     'isselectimage' => '0',
     'upload_number' => '10',
     'downloadlink' => '1',
-    'downloadtype' => '1',
+    'downloadtype' => '0',
   ),
   'updatetime' => 
   array (

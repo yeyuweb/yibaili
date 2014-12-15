@@ -10,7 +10,7 @@
                   <dd <?php if($catid==$rr['catid'] || $parentid==$rr['catid'] || $arrparentid[2]==$rr['catid']) { ?> class="current"<?php } ?>> <a href="<?php echo $rr['url'];?>"><?php echo $rr['catname'];?></a></dd>
                              <?php $n++;}unset($n); ?>
             <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
-                   <dd><a href="">智能坐便器</a></dd>
+                  
                         
                 </dl>
             </li>

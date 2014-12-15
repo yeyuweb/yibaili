@@ -9,8 +9,8 @@ return array (
   2 => 
   array (
     'fulltextenble' => '1',
-    'relationenble' => '1',
-    'suggestenable' => '1',
+    'relationenble' => '0',
+    'suggestenable' => '0',
     'sphinxenable' => '0',
     'sphinxhost' => '',
     'sphinxport' => '',

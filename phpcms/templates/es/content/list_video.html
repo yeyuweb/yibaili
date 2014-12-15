@@ -1,0 +1,44 @@
+    {template "content","header"}
+<!--End .mainNav-->
+    <!--End .header-->
+{template "content","header_min"}
+    <!--End .banner-->
+    <div id="container" class="clearfix" style="padding:10px 0px;">
+   <div class="wrap clearfix">
+          <div class="titleMain">
+              <h1 class="title">
+                  {$catname}</h1>
+              <div class="navCrumbs">
+                  <a href="{siteurl($siteid)}">首页</a> >  {catpos($catid)}</div>
+          </div>
+          <div class="gy_video">
+               {pc:content action="lists" catid="$catid" num="1" order="listorder desc"  moreinfo="1"}
+
+      {loop $data $r}
+              <div class="fl">
+                   <p>{$r['title']}</p>
+                  <div class="sp_p" style="width:685px; height:370px;">
+                  {$r[flvurl]}</div>
+                 
+              </div>
+      {/loop}
+      {/pc}
+              <div class="fr">
+                <dl>
+                        {pc:content action="lists" catid="$catid" num="3" order="listorder desc"  moreinfo="1"}
+      {loop $data $r}
+      {if $n !=1}
+                  <dd><a href="{$r[url]}"><img src="{$r[thumb]}"/></a><p>{$r[title]}</p></dd>
+                  {/if}
+                        {/loop}{/pc}
+                  
+                </dl>
+              </div>
+          </div>
+    </div>
+
+</div>
+    </div>
+
+    <!--End .container-->
+    {template "content","footer"}
