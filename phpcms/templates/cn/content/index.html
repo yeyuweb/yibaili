@@ -23,7 +23,7 @@
 <div id="container" class="clearfix">
   <div class="wrapMain">
             <div class="homeLeft">
-                 {pc:get sql="SELECT ybl_cn_news.* FROM ybl_position_data left join ybl_cn_news on ybl_position_data.id= ybl_cn_news.id where ybl_position_data.posid=18 and ybl_cn_news.id is not null   ORDER BY listorder desc" num="1"}
+                 {pc:get sql="SELECT ybl_cn_news.* FROM ybl_position_data left join ybl_cn_news on ybl_position_data.id= ybl_cn_news.id where ybl_position_data.posid=21 and ybl_cn_news.id is not null   ORDER BY listorder desc" num="1"}
                                 {loop $data $r}
                 <div class="newsTop clearfix">
                     <div class="nTleft">
@@ -39,7 +39,7 @@
                             {/pc}
                 
                 <ul class="newsList clearfix">
-                      {pc:get sql="SELECT ybl_cn_news.* FROM ybl_position_data left join ybl_cn_news on ybl_position_data.id= ybl_cn_news.id where ybl_position_data.posid=18 and ybl_cn_news.id is not null   ORDER BY listorder desc" num="3"}
+                      {pc:get sql="SELECT ybl_cn_news.* FROM ybl_position_data left join ybl_cn_news on ybl_position_data.id= ybl_cn_news.id where ybl_position_data.posid=21 and ybl_cn_news.id is not null   ORDER BY listorder desc" num="3"}
                                 {loop $data $r}
                                 {if $n!=1}
                     <li><a href="{$r[url]}">{$r['title']}</a><span class="time">{date('Y-m-d',$r[inputtime])}</span></li>

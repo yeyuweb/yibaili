@@ -1,91 +1,157 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=7" />
-<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
-<meta name="keywords" content="{$SEO['keyword']}">
-<meta name="description" content="{$SEO['description']}">
-<link href="{CSS_PATH}reset.css" rel="stylesheet" type="text/css" />
-<link href="{CSS_PATH}default_blue.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
-<script type="text/javascript" src="{JS_PATH}jquery.sgallery.js"></script>
-<script type="text/javascript" src="{JS_PATH}search_common.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+<link type="text/css" href="{CSS_PATH}base.css" rel="stylesheet" />
+<link type="text/css" href="{CSS_PATH}page.css" rel="stylesheet" />
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<title>亿佰利</title>
 </head>
-<body>
-<div class="body-top">
-    <div class="content">
-    {pc:content  action="position" posid="9" order="id" num="10" cache="3600"}
-    		<div id="announ">
-                 <ul>
-                 {loop $data $k $v}
-                      <li><a href="{$v[url]}">{$v[title]}</a></li>
-                      {/loop}
-                 </ul>
-            </div>
-     {/pc}
-	 {php echo runhook('glogal_header')}
 <script type="text/javascript">
-$(function(){
-	startmarquee('announ',22,1,500,3000);
-})
-</script>
-            <div class="login lh24 blue"><a href="{APP_PATH}index.php?m=content&c=rss&siteid={get_siteid()}" class="rss ib">rss</a><span class="rt"><script type="text/javascript">document.write('<iframe src="{APP_PATH}index.php?m=member&c=index&a=mini&forward='+encodeURIComponent(location.href)+'&siteid={get_siteid()}" allowTransparency="true"  width="500" height="24" frameborder="0" scrolling="no"></iframe>')</script></span></div>
+        $(function(){
+            $("#ddltype").change(function(){
+                var value = $(this).find('option:selected').val();
+                $("#typeid").val(value);
+            })
+        })
+ 
+        
+        
+        
+    </script>
+<body>
+
+<div class="header clearfix">
+<div class="head">
+
+	<div class="ss">
+	<div class="s11"><ul>	
+	<li><a href="#"  class="s01"><img src="{IMG_PATH}t11.jpg" width="28" height="17" /></a></li>	
+	<li ><a href="#" class="s02"><img src="{IMG_PATH}t22.jpg" width="28" height="17" /></a></li>
+	<li ><a href="# " class="s03"> <img src="{IMG_PATH}t33.jpg" width="28" height="17" /></a></li>
+	<li ><a href="#" class="s04"><img src="{IMG_PATH}t44.jpg" width="28" height="17" /></a></li>
+	</ul></div>
+               <form action="{APP_PATH}index.php" method="get" target="_blank" name="myform">
+    	<div class="p1"></div>
+        <div class="p2">
+        <input name="q" id="txtkey" type="text" /></div>
+        <div class="p3">
+            <select id="ddltype">
+          <option value="55">product model</option>
+          <option  value="56">news title</option>
+      </select></div>
+        <input type="hidden" name="m" value="search"/>
+        <input type="hidden" name="c" value="index"/>
+        <input type="hidden" name="a" value="init"/>
+        <input type="hidden" name="typeid" value="55" id="typeid"/> 
+        <input type="hidden" name="siteid" value="{$siteid}" id="siteid"/>
+        <div class="p4"><input type="submit" id="btok" value="search" /></div>
+               </form>
+    </div>
+    <div class="logo">
+        <a href="/"><img src="{IMG_PATH}img_02.jpg" width="171" height="89" /></a>       
+    </div>
+    <div class="mainNav clearfix">   
+        <ul class="nav clearfix">
+            {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+            {loop $data $r}
+            {if (count(subcat($r[catid],0,0,$siteid)) > 0 || count(subcat($r[catid],1,0,$siteid)) > 0)  && $n !=2}
+                {php $zi_arr = explode(',',$r[arrchildid])}
+                {php $url = $CATEGORYS[$zi_arr[1]][url]}
+            {else}
+                {php $url  = $r[url]}
+            {/if}
+            <li class="{$r[description]} "><a href="{$url}">{$r[catname]}</a></li>
+            {/loop}
+            {/pc}                   
+        </ul>    
+        <a href="{siteurl($siteid)}" class="backHome">home page</a>
     </div>
 </div>
-<div class="header">
-	<div class="logo"><a href="{siteurl($siteid)}/"><img src="{IMG_PATH}v9/logo.jpg" /></a></div>
+    <div class="navShow-about">
+        <div class="navShowwrap">  
+        <ul class="navList">
+             {pc:content action="category" catid="40" num="25" siteid="$siteid" order="listorder ASC"}
+             {loop $data $r}
+             <li ><a href="{$r[url]}">{$r[catname]}</a></li>
+             {/loop}
+            {/pc}  
 
-    <div class="search">
-    	<div class="tab" id="search">
-			{php $j=0}
-			{php $search_model = getcache('search_model_'.$siteid, 'search');}
-			{loop $search_model $k=>$v}
-			{php $j++;}
-				<a href="javascript:;" onclick="setmodel({$v['typeid']}, $(this));" style="outline:medium none;" hidefocus="true" {if $j==1 && $typeid=$v['typeid']} class="on" {/if}>{$v['name']}</a>{if $j != count($search_model)}<span> | </span>{/if}
-			{/loop}
-			{php unset($j);}
-		</div>
-
-        <div class="bd">
-            <form action="{APP_PATH}index.php" method="get" target="_blank">
-				<input type="hidden" name="m" value="search"/>
-				<input type="hidden" name="c" value="index"/>
-				<input type="hidden" name="a" value="init"/>
-				<input type="hidden" name="typeid" value="{$typeid}" id="typeid"/>
-				<input type="hidden" name="siteid" value="{$siteid}" id="siteid"/>
-                <input type="text" class="text" name="q" id="q"/><input type="submit" value="搜 索" class="button" />
-            </form>
-        </div>
+         </ul>                             
+         </div>
     </div>
 
-    <div class="banner"><script language="javascript" src="{APP_PATH}index.php?m=poster&c=index&a=show_poster&id=1"></script></div>
-    <div class="bk3"></div>
-    <div class="nav-bar">
-    	<map>
-    	{pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
-        	<ul class="nav-site">
-			<li><a href="{siteurl($siteid)}"><span>首页</span></a></li>
-			{loop $data $r}
-			<li class="line">|</li>
-			<li><a href="{$r[url]}"><span>{$r[catname]}</span></a></li>
-			{/loop}
-            </ul>
-        {/pc}
-		{php echo runhook('glogal_menu')}
-        </map>
-    </div> 
-	
-	{if $top_parentid}
-    <div class="subnav">
-		{pc:content action="category" catid="$top_parentid" num="15" siteid="$siteid" order="listorder ASC"}
-			{loop $data $r}
-			<a href="{$r[url]}">{$r[catname]}</a><span> | </span>
-			{/loop}
-        {/pc}
-		<a href="{APP_PATH}index.php?m=video&c=index&a=album">视频专辑</a> <span> | </span>
-    	{if $modelid}<a href="{APP_PATH}index.php?m=content&c=search&catid={$catid}">搜索</a>{/if}
+    <div class="navShow-product">
+        <div class="navShowwrap">
+         <ul class="nSplist">
+          {pc:get sql="SELECT ybl_en_picture.* FROM ybl_position_data left join ybl_en_picture on ybl_position_data.id= ybl_en_picture.id where ybl_position_data.posid=23 and ybl_en_picture.id is not null   ORDER BY listorder desc" num="4"}
+                                {loop $data $r}
+            <li><p><a href="{$r[url]}"><img src="{$r[thumb]}" width="119" height="96" alt="{$r[title]}"/></a></p><p><a href="">{$r[title]}</a></p></li>
+            {/loop}
+                            {/pc}
+        </ul>  
+            {pc:content action="category" catid="46" num="25" siteid="$siteid" order="listorder ASC"}
+            {php $i=1;}
+            <ul class="nameList">     
+             {loop $data $r}
+                <li><a href="{$r[url]}">{$r[catname]}</a></li>
+                          {if $i%4==0}
+                </ul><ul class="nameList">   
+                {/if} 
+                 {php  $i++;}
+             {/loop}
+             {/pc}
+             </ul>
+ </div>
     </div>
-	{/if}
-</div>
+    <div class="navShow-project">
+        <div class="navShowwrap">          
+         <ul class="navList">
+             {pc:content action="category" catid="58" num="25" siteid="$siteid" order="listorder ASC"}
+             {loop $data $r}
+            <li><a href="{$r[url]}" >{$r[catname]}</a></li>
+               {/loop}
+             {/pc}
+         
+
+              </ul>        
+         </div>
+    </div>
+    <div class="navShow-support">
+        <div class="navShowwrap">          
+         <ul class="navList">
+             {pc:content action="category" catid="61" num="25" siteid="$siteid" order="listorder ASC"}
+             {loop $data $r}
+            <li ><a href="{$r[url]}">{$r[catname]}</a></li>
+             {/loop}
+             {/pc}
+        
+
+         </ul>        
+         </div>
+    </div>
+    <div class="navShow-technology">
+        <div class="navShowwrap">          
+         <ul class="navList">
+             {pc:content action="category" catid="64" num="25" siteid="$siteid" order="listorder ASC"}
+             {loop $data $r}
+            <li ><a href="{$r[url]}">{$r[catname]}</a></li>
+            {/loop}
+             {/pc}
+
+         </ul>        
+         </div>
+    </div>
+    <div class="navShow-contact">
+        <div class="navShowwrap">          
+         <ul class="navList">
+             {pc:content action="category" catid="66" num="25" siteid="$siteid" order="listorder ASC"}
+             {loop $data $r}
+            <li ><a href="{$r[url]}">{$r[catname]}</a></li>
+             {/loop}
+             {/pc}
+            
+         </ul>        
+         </div>
+    </div>
 </div>

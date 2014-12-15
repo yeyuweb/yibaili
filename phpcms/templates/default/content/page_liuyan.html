@@ -1,0 +1,107 @@
+    {template "content","header"}
+    <!--End .header-->
+    {template "content","header_min"}
+    <!--End .banner-->
+    <div id="container" class="clearfix">
+    <div class="wrapMain clearfix">
+        <div class="contactMain01 clearfix">
+                <div class="titleMain01" style="margin-top: -35px;">
+                    <h1 class="title">{$catname}</h1>
+                    <div class="navCrumbs01">
+                        <a href="{siteurl($siteid)}">home</a> > {catpos($catid)}</div>
+                </div>
+                <div class="contactDtBox">
+                    <div class="contactDetailTop clearfix" style="padding-bottom:20px;">
+                        
+                       <form method="post" action="?m=formguide&c=index&a=show&formid=29&siteid=2" name="myform" id="myform">
+
+                          <table width="1000" border="0" cellspacing="0" cellpadding="0" class="zxly">
+  <tr>
+    <td width="73" height="45" align="right">name：</td>
+    <td width="927"><input name="info[en_name]" id="en_name" type="text" /></td>
+  </tr>
+  <tr>
+    <td height="45" align="right">linktel：</td>
+      <td><input name="info[en_link]"  id="en_link" type="text" /></td>
+  </tr>
+  <tr>
+    <td height="45" align="right">address：</td>
+    <td><input name="info[en_location]"  id="en_location" type="text" /></td>
+  </tr>
+  <tr>
+    <td height="120" align="right">content：</td>
+    <td><textarea name="info[en_content]" id='en_content' cols="" rows="">&nbsp;</textarea></td>
+  </tr>
+    <tr>
+    <td height="60" align="right"></td>
+    <td><input  type="submit" name="dosubmit" id="dosubmit" value="submit"></td>
+  </tr>
+</table>
+                       </form>
+</div>
+                    <div class="contactDetailBot">
+ </div>
+                </div>
+            </div> 
+    </div>    
+</div>
+    </div>
+<script type="text/javascript">
+        $(function () {
+            if ($("#hfid").val() != "") {
+                var hf = $("#hfid").val();
+                $(".productSmain a[srcs=0]").each(function () {
+                    $(".productSmain a[name=" + $(this).attr("name") + "]").each(function () {
+                        if (hf.indexOf("|" + $(this).attr("srcs") + "|") > -1) {
+                            $(".productSmain a[srcs=0][name=" + $(this).attr("name") + "]").parent().attr("class", "");
+                            $(this).parent().attr("class", "current");
+                        }
+                    })
+
+                })
+                $(".proMainTop").trigger("click");
+            }
+            $(".proMainTop").trigger("click");
+            $(".productSmain a").click(function () {
+                var name = $(this).attr("name");
+                var id = $(this).attr("srcs");
+                var hf = $("#hfid").val();
+                if (name != "" && id != "") {
+                    if (hf == "") {
+                        if (id != "0") {
+                            hf = "|" + id + "|";
+                        }
+                    } else {
+                        if (hf.indexOf("|" + id + "|") < 0) {
+                            $(".productSmain a[name=" + name + "]").each(function () {
+                                if (hf.indexOf("|" + $(this).attr("srcs") + "|") > -1) {
+                                    hf = hf.replace("|" + $(this).attr("srcs") + "|", "|");
+                                }
+                            })
+                            if (id != "0") {
+                                hf += id + "|";
+                            }
+                        }   //                    else {
+                        //                        if (hf == "") {
+                        //                            hf = "|" + id + "|";
+                        //                        } else {
+                        //                            hf += id + "|";
+                        //                        }
+                        //                    }
+                    }
+
+                }
+                $("#hfid").val(hf);
+                if (hf == "|") hf = "";
+                if (hf == "") {
+                    window.location.href = "list.aspx?id=49#pro";
+                } else {
+                    window.location.href = "list.aspx?id=49&hid=" + hf + "#pro";
+                }
+            });
+
+        });
+        function voids() { }
+    </script>
+    <!--End .container-->
+      {template "content","footer"}

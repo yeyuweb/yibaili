@@ -1,7 +1,7 @@
 <?php return array (
   'name' => '英文模板',
-  'author' => 'CMS TEAM',
-  'dirname' => 'default',
+  'author' => 'TEAM',
+  'dirname' => '',
   'homepage' => '/',
   'version' => '1.0',
   'disable' => 0,

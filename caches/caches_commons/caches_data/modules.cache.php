@@ -194,6 +194,15 @@ return array (
     \'sphinxhost\' => \'\',
     \'sphinxport\' => \'\',
   ),
+  1 => 
+  array (
+    \'fulltextenble\' => \'1\',
+    \'relationenble\' => \'0\',
+    \'suggestenable\' => \'0\',
+    \'sphinxenable\' => \'0\',
+    \'sphinxhost\' => \'\',
+    \'sphinxport\' => \'\',
+  ),
 )',
     'listorder' => '0',
     'disabled' => '0',

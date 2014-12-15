@@ -1,0 +1,140 @@
+{template "content","header"}
+<!--End .mainNav-->
+    <!--End .header-->
+{template "content","header_min"}
+    <!--End .banner-->
+    <div id="container" class="clearfix">
+        <div class="productMain clearfix">
+            <div class="proLeftNav">
+              <div class="proLeftNavTitle">
+                    Product classification</div>
+                
+        {template "content","left_chanpin"}    
+ </div>
+            <div class="productRight">
+            <div class="proRightTitle"><span class="sn01"> {$title}</span><div class="smallNav"><a href="{siteurl($siteid)}">home</a>&nbsp;&nbsp;>&nbsp;&nbsp;
+                     {catpos($catid)}</div></div>
+            <div class="proRightBox">
+                <div class="detailTop clearfix">
+                    <div class="leftPics bannerSwitch02">
+                        <ul class="clearfix">
+                            {loop $pictureurls $pic_k $r}
+                            <li><img src="{$r[url]}" width="518" height="290" /></li>
+                            
+                            {/loop}
+                           
+                        </ul>
+                        <dl class="clearfix">
+                        
+                          <dd></dd>
+                            
+                            <dd></dd>
+                            
+                            <dd></dd>
+                            
+                      </dl>
+                  </div>
+                    <div class="rightCons">
+                        <p class="pn">
+                           {$title}</p>
+                        <div class="ps">
+                        <div class="infoRight1">
+                            <div class="infoRight">
+	<div class="dd">
+		<span class="dl">size:</span><span class="dr">{$keywords[0]}</span></div>
+	<div class="dd">
+		<span class="dl">Pit from:</span><span class="dr">{$description}</span></div>
+</div>
+<p>
+	 </p></div>
+                      </div>
+                    </div>
+                </div>
+                <div class="detailMain clearfix">
+                    <div class="detailTab">
+                        <ul>
+                        
+                            <li class="current">Product introduction</li>
+                            
+                            <li>Specifications and parameters</li>                       
+                        </ul>
+                    </div>
+                    <div class="detailBox">
+                     
+                        <div class="detailShow">
+                 {$content}
+
+                        </div>
+                        
+                        <div class="detailShow">
+                            <p style="text-align: center">
+{$guige}</p>
+                        </div>
+                           
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+      </div>
+</div>
+    </div>
+<script type="text/javascript">
+        $(function () {
+            if ($("#hfid").val() != "") {
+                var hf = $("#hfid").val();
+                $(".productSmain a[srcs=0]").each(function () {
+                    $(".productSmain a[name=" + $(this).attr("name") + "]").each(function () {
+                        if (hf.indexOf("|" + $(this).attr("srcs") + "|") > -1) {
+                            $(".productSmain a[srcs=0][name=" + $(this).attr("name") + "]").parent().attr("class", "");
+                            $(this).parent().attr("class", "current");
+                        }
+                    })
+
+                })
+                $(".proMainTop").trigger("click");
+            }
+            $(".proMainTop").trigger("click");
+            $(".productSmain a").click(function () {
+                var name = $(this).attr("name");
+                var id = $(this).attr("srcs");
+                var hf = $("#hfid").val();
+                if (name != "" && id != "") {
+                    if (hf == "") {
+                        if (id != "0") {
+                            hf = "|" + id + "|";
+                        }
+                    } else {
+                        if (hf.indexOf("|" + id + "|") < 0) {
+                            $(".productSmain a[name=" + name + "]").each(function () {
+                                if (hf.indexOf("|" + $(this).attr("srcs") + "|") > -1) {
+                                    hf = hf.replace("|" + $(this).attr("srcs") + "|", "|");
+                                }
+                            })
+                            if (id != "0") {
+                                hf += id + "|";
+                            }
+                        }   //                    else {
+                        //                        if (hf == "") {
+                        //                            hf = "|" + id + "|";
+                        //                        } else {
+                        //                            hf += id + "|";
+                        //                        }
+                        //                    }
+                    }
+
+                }
+                $("#hfid").val(hf);
+                if (hf == "|") hf = "";
+                if (hf == "") {
+                    window.location.href = "list.aspx?id=49#pro";
+                } else {
+                    window.location.href = "list.aspx?id=49&hid=" + hf + "#pro";
+                }
+            });
+
+        });
+        function voids() { }
+    </script>
+    <!--End .container-->
+ {template "content","footer"}
