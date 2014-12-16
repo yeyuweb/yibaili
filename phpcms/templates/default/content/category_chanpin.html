@@ -7,19 +7,19 @@
         <div class="productMain clearfix">
             <div class="proLeftNav">
               <div class="proLeftNavTitle">
-                    产品分类</div>
+                    Product classification</div>
         {template "content","left_chanpin"}        
 
  </div>
             <div class="productRight">
                 <div class="proRightTitle">
                     <span class="sn">{$catname}</span><div class="smallNav">
-                     <a href="{siteurl($siteid)}">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp; {catpos($catid)}</div>
+                     <a href="{siteurl($siteid)}">home</a>&nbsp;&nbsp;>&nbsp;&nbsp; {catpos($catid)}</div>
                 </div>
                 <div class="proRightBox">
                   <div class="recommendBox">
                         <h2 class="h2">
-                            最新推荐</h2>
+                            The latest recommendation</h2>
                         <div class="recommendList">
                             <ul class="imglist">
                                   {pc:get sql="SELECT * FROM ybl_en_picture  ORDER BY listorder desc" num="6"}

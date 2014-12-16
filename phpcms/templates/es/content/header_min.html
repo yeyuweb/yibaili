@@ -2,7 +2,7 @@
     <div class="bannerProduct01">
 <!--        <img src="{$CATEGORYS[$catid][image]} " width="1424" height="334" />-->
 
-           {pc:get sql="SELECT setting FROM ybl_poster WHERE spaceid = 12 AND type='images' AND disabled=0 ORDER BY listorder ASC" num="1"}
+           {pc:get sql="SELECT setting FROM ybl_poster WHERE spaceid = 14 AND type='images' AND disabled=0 ORDER BY listorder ASC" num="1"}
                {loop $data $r}
                <?php eval("\$narry =$r[setting];");?>
                <a  href="{$narry[1][linkurl]}"><img src="{$narry[1][imageurl]} " width="1424" height="334" /></a>

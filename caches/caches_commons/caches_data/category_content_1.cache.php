@@ -151,7 +151,7 @@ return array (
     'description' => '',
     'parentdir' => 'liaojie_en/',
     'catdir' => 'PDF_file',
-    'url' => 'http://www.ybl.com',
+    'url' => 'http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=43',
     'items' => '0',
     'hits' => '0',
     'setting' => 'array (
@@ -202,7 +202,7 @@ return array (
     'description' => '',
     'parentdir' => 'liaojie_en/',
     'catdir' => 'video_en',
-    'url' => 'http://www.ybl.com',
+    'url' => 'http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=44',
     'items' => '0',
     'hits' => '0',
     'setting' => 'array (
@@ -958,7 +958,7 @@ return array (
     'description' => '',
     'parentdir' => 'yblnews/',
     'catdir' => 'qynews',
-    'url' => 'http://www.ybl.com',
+    'url' => 'http://www.ybl.com/index.php?m=content&c=index&a=lists&catid=59',
     'items' => '0',
     'hits' => '0',
     'setting' => 'array (
@@ -1377,7 +1377,8 @@ return array (
     'hits' => '0',
     'setting' => 'array (
   \'ishtml\' => \'0\',
-  \'template_list\' => \'\',
+  \'template_list\' => \'default\',
+  \'page_template\' => \'page_liuyan\',
   \'meta_title\' => \'\',
   \'meta_keywords\' => \'\',
   \'meta_description\' => \'\',

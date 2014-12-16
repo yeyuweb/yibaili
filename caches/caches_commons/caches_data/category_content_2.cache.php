@@ -853,7 +853,7 @@ return array (
     'arrparentid' => '0,12',
     'child' => '0',
     'arrchildid' => '23',
-    'catname' => '镇住',
+    'catname' => '珍珠',
     'style' => '',
     'image' => '',
     'description' => '',
