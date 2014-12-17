@@ -5,9 +5,9 @@
 <link type="text/css" href="<?php echo CSS_PATH;?>base.css" rel="stylesheet" />
 <link type="text/css" href="<?php echo CSS_PATH;?>page.css" rel="stylesheet" />
 <script src="<?php echo JS_PATH;?>jquery-1.7.2.min.js" type="text/javascript"></script>
-<title>亿佰利</title>
+<title><?php if(isset($SEO['title']) && !empty($SEO['title'])) { ?><?php echo $SEO['title'];?><?php } ?><?php echo $SEO['site_title'];?></title>
 </head>
-    <style type="text/css">
+<style type="text/css">
  .nav {
 margin: -30px 80px 0 0;
 }
@@ -32,10 +32,10 @@ margin: -30px 80px 0 0;
 
 	<div class="ss">
 	<div class="s11"><ul>	
-	<li><a href="#"  class="s01"><img src="<?php echo IMG_PATH;?>t11.jpg" width="28" height="17" /></a></li>	
-	<li ><a href="#" class="s02"><img src="<?php echo IMG_PATH;?>t22.jpg" width="28" height="17" /></a></li>
-	<li ><a href="# " class="s03"> <img src="<?php echo IMG_PATH;?>t33.jpg" width="28" height="17" /></a></li>
-	<li ><a href="#" class="s04"><img src="<?php echo IMG_PATH;?>t44.jpg" width="28" height="17" /></a></li>
+	<li><a href="<?php echo APP_PATH;?>cn"  class="s01"><img src="<?php echo IMG_PATH;?>t11.jpg" width="28" height="17" /></a></li>	
+	<li ><a href="<?php echo APP_PATH;?>" class="s02"><img src="<?php echo IMG_PATH;?>t22.jpg" width="28" height="17" /></a></li>
+	<li ><a href="<?php echo APP_PATH;?>es " class="s03"> <img src="<?php echo IMG_PATH;?>t33.jpg" width="28" height="17" /></a></li>
+	<li ><a href="<?php echo APP_PATH;?>ru" class="s04"><img src="<?php echo IMG_PATH;?>t44.jpg" width="28" height="17" /></a></li>
 	</ul></div>
                <form action="<?php echo APP_PATH;?>index.php" method="get" target="_blank" name="myform">
     	<div class="p1"></div>
@@ -43,15 +43,15 @@ margin: -30px 80px 0 0;
         <input name="q" id="txtkey" type="text" /></div>
         <div class="p3">
             <select id="ddltype">
-          <option value="53">产品型号</option>
-          <option  value="54">新闻标题</option>
+          <option value="57">Productos</option>
+          <option  value="58">Titulares.</option>
       </select></div>
         <input type="hidden" name="m" value="search"/>
         <input type="hidden" name="c" value="index"/>
         <input type="hidden" name="a" value="init"/>
-        <input type="hidden" name="typeid" value="53" id="typeid"/> 
+        <input type="hidden" name="typeid" value="57" id="typeid"/> 
         <input type="hidden" name="siteid" value="<?php echo $siteid;?>" id="siteid"/>
-        <div class="p4"><input type="submit" id="btok" value="搜索" /></div>
+        <div class="p4"><input type="submit" id="btok" value="Buscar" /></div>
                </form>
     </div>
     <div class="logo">
@@ -71,7 +71,7 @@ margin: -30px 80px 0 0;
             <?php $n++;}unset($n); ?>
             <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>                   
         </ul>    
-        <a href="<?php echo siteurl($siteid);?>" class="backHome">返回首页</a>
+        <a href="<?php echo siteurl($siteid);?>" class="backHome">página</a>
     </div>
 </div>
     <div class="navShow-about">

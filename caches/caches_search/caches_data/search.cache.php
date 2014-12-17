@@ -33,5 +33,14 @@ return array (
     'sphinxhost' => '',
     'sphinxport' => '',
   ),
+  4 => 
+  array (
+    'fulltextenble' => '1',
+    'relationenble' => '0',
+    'suggestenable' => '0',
+    'sphinxenable' => '0',
+    'sphinxhost' => '',
+    'sphinxport' => '',
+  ),
 );
 ?>

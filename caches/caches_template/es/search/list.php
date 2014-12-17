@@ -1,67 +1,35 @@
-{template "content","header"}
+<?php defined('IN_PHPCMS') or exit('No permission resources.'); ?><?php include template("content","header"); ?>
 <!--End .mainNav-->
     <!--End .header-->
-{template "content","header_min"}
+<?php include template("content","header_min"); ?>
     <!--End .banner-->
-    <div id="container" class="clearfix">
-        <div class="wrapMain01 clearfix">
-            <div class="titleMain01">
-                <h1 class="title">
-                    {$catname}
-                </h1>
-                <div class="navCrumbs01">
-                   <a href="{siteurl($siteid)}">Página</a> > {catpos($catid)}</div>
-            </div>
-            <div class="downloadWrap">
-<!--                <div class="downloadSearch clearfix">
-                    <span>
-                        <input type="text" value="输入相关关键字" class="searchText" onfocus="if(this.value=='输入相关关键字'){this.value='';}" /></span>
-                    <span>
-                        <input type="button" class="searchBtn" /></span>
-                </div>-->
-                <ul class="downloadList clearfix">
-                   
-                     {pc:content action="lists" catid="$catid" num="9" order="listorder desc" page="$page" moreinfo="1"}
-      {loop $data $r}
-       <?php eval("\$narry =$r[downfiles];");?>
-                            <li><a href="/index.php?m=download&c=index&a=download&filepath={$narry[0][fileurl]}" onclick="">
-                                <div class="downloadBox">
-                                    <div class="picLeft">
-                                        <img  src="{$r[thumb]}" width="105" height="83" alt="" /></div>
-                                    <div class="textRight">
-                                        <h3 class="h3">
-                                            {$narry[0][filename]}</h3>
-                                        <p>
-                                            Fecha：{date('Y-m-d',$r[inputtime])}</p>
-                                    </div>
-                                </div>
-                            </a></li>
-                                  {/loop}
-      {/pc}
+    <div id="container" class="clearfix" style="padding:10px 0px;">
+   <div class="wrap clearfix">
+          <div class="titleMain">
+              <h1 class="title">
+                  <?php echo $catname;?></h1>
+              <div class="navCrumbs"><a href="<?php echo siteurl($siteid);?>">首页</a> >搜索内容</div>
+          </div>
+             <table width="1100" border="0" cellspacing="0" cellpadding="0" class="ybl_news">
+          <?php $n=1;if(is_array($search_data)) foreach($search_data AS $r) { ?>
+  <tr>
+    <td width="36" height="42" align="center"><img src="<?php echo IMG_PATH;?>menu_03.jpg" /></td>
+    <td width="939"><a href="<?php echo $r['url'];?>"><?php echo $r['title'];?></a></td>
+    <td width="125"><?php echo date('Y-m-d',$r[inputtime]);?></td>
+  </tr>
+  <?php $n++;}unset($n); ?>
+</table>
 
-                        
-                           
-                        
-                    
-
-                </ul>
-                <div class="page">
-                    
-<!-- AspNetPager V7.2 for VS2005 & VS2008  Copyright:2003-2008 Webdiyer (www.webdiyer.com) -->
-<div id="pgServer" class="page">
-{$pages}
+<div class="page">
+<?php echo $pages;?>
 </div>
-<!-- AspNetPager V7.2 for VS2005 & VS2008 End -->
 
-
-                </div>
-            </div>
-        </div>
     </div>
+
+</div>
     </div>
 <script type="text/javascript">
         $(function () {
-            
             if ($("#hfid").val() != "") {
                 var hf = $("#hfid").val();
                 $(".productSmain a[srcs=0]").each(function () {
@@ -118,4 +86,4 @@
         function voids() { }
     </script>
     <!--End .container-->
-    {template "content","footer"}
+  <?php include template("content","footer"); ?>
