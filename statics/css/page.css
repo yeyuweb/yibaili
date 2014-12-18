@@ -464,7 +464,7 @@ input,textarea{font-size:14px;font-family:\5FAE\8F6F\96C5\9ED1;}
 .proLeftNavList{margin-bottom:20px;}
 .proLeftNavList li{line-height:35px;border-bottom:#ff8947 1px solid;cursor:pointer;}
 .proLeftNavList li .name{color:#000;font-size:14px;font-family:\5FAE\8F6F\96C5\9ED1;padding-left:25px;display:block;}
-.proLeftNavList li a{color:#000;font-size:14px;font-family:\5FAE\8F6F\96C5\9ED1;padding-left:25px;display:block;}
+.proLeftNavList li a{color:#000;font-size:14px;font-family:\5FAE\8F6F\96C5\9ED1;display:block;}
 .proLeftNavList li.current{background:#ffab7b;}
 .proLeftNavList li:hover{background:#ffab7b;}
 .proLeftNavList li:hover a{text-decoration:none;}

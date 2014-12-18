@@ -3,7 +3,11 @@
             {loop $data $r}
             <li {if $catid==$r['catid'] || $parentid==$r['catid'] || $arrparentid[2]==$r['catid']} class="current"{/if}>
                 <span class="name">
-                {$r[catname]}</span>
+               {if  count(subcat($r[catid],0,0,$siteid))> 0 }
+                    {$r[catname]}
+                {else}
+                <a href="{$r[url]}">{$r[catname]}</a>
+                {/if}</span>
                 <dl class="ulShow">
                      {pc:content action="category" catid="$r[catid]" num="20" siteid="$siteid" order="listorder ASC"  return="child_data"}
 {loop $child_data $rr}
